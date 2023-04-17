@@ -2,28 +2,45 @@
 import Link from 'next/link'
 import { FunctionComponent, useState } from 'react'
 import { languages } from '@/app/i18n/settings'
+import { GB, NL } from 'country-flag-icons/react/3x2'
 
 interface LanguageSwitcherProps {
   lng: string
 }
-const Footer: FunctionComponent<LanguageSwitcherProps> = ({ lng }) => {
+
+const LanguageSwitcher: FunctionComponent<LanguageSwitcherProps> = ({ lng }) => {
   const [open, setOpen] = useState<boolean>(false)
+
   return (
-    <div className="relative inline-block mt-4">
+    <div className="relative inline-block">
       <button
         type="button"
-        className="inline-flex items-center px-3 py-2 rounded-lg focus:outline-none bg-blue-800"
+        className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center hover:ring-2 ring-blue-400 transition-all duration-300 focus:outline-none"
         onClick={() => setOpen(!open)}
         onBlur={() => setOpen(false)}
       >
-        {lng}
+        {lng == 'en' ? <GB title="English" className="w-5 h-5" /> : <NL title="Dutch" className="w-5 h-5" />}
       </button>
       {open && (
-        <ul className="absolute z-50 w-full mt-2 rounded-lg bg-white text-black list-none">
+        <ul className="absolute z-50 mt-2 rounded-lg bg-blue-100 dark:bg-slate-800 text-white list-none">
           {languages.map((lng, index) => (
             <Link key={index} href={`/${lng}`}>
               <li className="inline-flex items-center w-full px-3 py-2 cursor-pointer hover:text-blue-800" key={index} onMouseDown={(e) => e.preventDefault()}>
-                <span className="font-bold leading-normal">{lng}</span>
+                {lng == 'en' ? (
+                  <div className="flex items-center gap-2">
+                    <span>
+                      <GB title="English" className="w-5 h-5" />
+                    </span>
+                    <span>{lng.toUpperCase()}</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <span>
+                      <NL title="Dutch" className="w-5 h-5" />
+                    </span>
+                    <span>{lng.toUpperCase()}</span>
+                  </div>
+                )}
               </li>
             </Link>
           ))}
@@ -33,4 +50,4 @@ const Footer: FunctionComponent<LanguageSwitcherProps> = ({ lng }) => {
   )
 }
 
-export default Footer
+export default LanguageSwitcher
