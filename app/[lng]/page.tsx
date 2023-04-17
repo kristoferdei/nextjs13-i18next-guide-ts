@@ -1,5 +1,5 @@
 import { useTranslation } from '../i18n'
-import LanguageSwitcher from '@/app/[lng]/components/LanguageSwitcher'
+import Card from '@/app/[lng]/components/Card'
 
 export default async function Home({
   params: { lng }
@@ -11,9 +11,9 @@ export default async function Home({
   const { t } = await useTranslation(lng)
 
   return (
-    <main>
-      <LanguageSwitcher lng={lng} />
-      <h1>{t('title')}</h1>
+    <main className="flex flex-col justify-center items-center">
+      <h1 className="text-white text-2xl lg:text-5xl font-black">{t('title')}</h1>
+      <Card lng={lng} />
     </main>
   )
 }
