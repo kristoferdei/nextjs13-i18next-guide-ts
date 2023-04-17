@@ -32,7 +32,7 @@ const Header: FunctionComponent<HeaderProps> = ({ lng }) => {
       }`}
     >
       <div className="flex items-center flex-no-shrink mr-6">
-        <span className="font-semibold text-xl tracking-tight">{t('title')}</span>
+        <span className="font-semibold text-xl tracking-tight">{t('heading')}</span>
       </div>
       <nav>
         <ul className="flex flex-row items-center gap-4">

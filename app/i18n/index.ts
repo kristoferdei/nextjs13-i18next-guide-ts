@@ -15,7 +15,7 @@ const initI18next = async (lng: string, ns: string | string[]) => {
 export async function useTranslation<N extends Namespace, TKPrefix extends KeyPrefix<N>>(lng: string, ns?: N, options: { keyPrefix?: TKPrefix } = {}) {
   const i18nextInstance = await initI18next(lng, Array.isArray(ns) ? (ns as string[]) : (ns as string))
   return {
-    t: i18nextInstance.getFixedT(lng, ns /*, options.keyPrefix*/),
+    t: i18nextInstance.getFixedT(lng, ns),
     i18n: i18nextInstance
   }
 }

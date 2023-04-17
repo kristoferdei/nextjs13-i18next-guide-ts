@@ -13,13 +13,17 @@ const Card: FunctionComponent<CardProps> = ({ lng }) => {
 
   return (
     <div className="w-3/4 lg:w-1/2 rounded-lg border shadow-md border-gray-700 my-10 transition duration-300">
-      <div className="p-20">
-        <Image src={TranslationImage} alt="translation" width={400} height={200} />
+      <div className="p-5 flex justify-center">
+        <Image src={TranslationImage} alt="translation" width="0" height="0" sizes="100vw" className="w-1/2 h-1/2" />
       </div>
       <div className="rounded-b-lg p-5">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{t('title')}</h5>
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{t('subtitle')}</h5>
         <p className="mb-3 font-normal text-gray-400">{t('description')}</p>
-        <button className="inline-flex items-center py-2 px-3 text-sm text-white font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
+        <a
+          href="https://github.com/kristoferdei/nextjs13-i18next-guide-ts"
+          target="_blank"
+          className="inline-flex items-center py-2 px-3 text-sm text-white font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
+        >
           {t('button')}
           <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -28,7 +32,7 @@ const Card: FunctionComponent<CardProps> = ({ lng }) => {
               clipRule="evenodd"
             ></path>
           </svg>
-        </button>
+        </a>
       </div>
     </div>
   )

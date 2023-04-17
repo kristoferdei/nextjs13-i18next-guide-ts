@@ -1,4 +1,5 @@
 'use client'
+
 import Link from 'next/link'
 import { FunctionComponent, useState } from 'react'
 import { languages } from '@/app/i18n/settings'
